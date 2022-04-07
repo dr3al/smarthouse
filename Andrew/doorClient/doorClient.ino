@@ -1,4 +1,5 @@
 #include <SoftwareSerial.h>
+#include <Servo.h>
 
 #define rxPin 2
 #define txPin 3
@@ -26,7 +27,7 @@ void loop() {
     data = espSerial.readString();
     if (data == "0578d33e-0f83-411d-91e8-a6eb3add4432"){
       if(comSerial){  
-        comSerial.println("Open the door")
+        comSerial.println("Open the door");
       }
       servo.write(90);
       digitalWrite(ledPin, HIGH);      
@@ -34,7 +35,7 @@ void loop() {
 
     else if (data == "c2d4e359-1171-44c0-b1c7-4ab44b9de44a"){
       if(comSerial){
-        comSerial.println("Close the door")
+        comSerial.println("Close the door");
       }
       servo.write(180);
       digitalWrite(ledPin, LOW);
@@ -42,7 +43,7 @@ void loop() {
 
     else {
       if(comSerial){
-        comSerial.println("Unknown command")
+        comSerial.println("Unknown command");
       }
     }
   }
